@@ -1,0 +1,51 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+
+
+<f:layout name="Default" />
+
+<f:section name="main">
+
+    <f:comment>
+        <f:debug>{addresses}</f:debug>
+    </f:comment>
+
+    <table id="table_id" class="contenttable" style="width:100%">
+        <thead class="preis">
+            <tr class="preis">
+                <th class="preis">ID</th>
+                <th class="preis">Gender</th>
+                <th class="preis">Name</th>
+                <th class="preis">Geb.</th>
+                <th class="preis">Bewerb</th>
+                <th class="preis">Beginner Cup</th>
+                <th class="preis">AUT Trophy</th>
+                <th class="preis">EM Quali</th>
+                <th class="preis">Land</th>
+            </tr>
+        </thead>
+        <tbody class="preis">
+            <f:for each="{addresses}" as="address">
+                <tr class="preis">
+                    <td class="preis" data-title="ID">{address.uid}</td>
+                    <td class="preis" data-title="Gender">
+                        <f:switch expression="{address.gender}">
+                            <f:case value="m">Herr</f:case>
+                            <f:case value="f">Frau</f:case>
+                        </f:switch>
+                    </td>
+                    <td class="preis" data-title="Name">{address.firstName} {address.lastName}</td>
+                    <td class="preis" data-title="Geb.">{address.birthday -> f:format.date(format:'%d.%m.%Y')}</td>
+                    <td class="preis" data-title="Bewerb">{address.wettbewerb}</td>
+                    <td class="preis" data-title="Beginner Cup">{address.onmstartklasse}</td>
+                    <td class="preis" data-title="AUT Trophy">{address.iomstartklasse}</td>
+                    <td class="preis" data-title="EM Quali">{address.emquali}</td>
+                    <td class="preis" data-title="Land">{address.country}</td>
+                </tr>
+            </f:for>
+        </tbody>
+    </table>
+
+</f:section>
+
+</html>
