@@ -6,5 +6,5 @@ if (!defined('TYPO3_MODE')) {
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'Rcaddressfield.Athletendaten',
     'List',
-    'Beschreibung'
+    'Tabelle Athletendaten'
 );
